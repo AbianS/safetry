@@ -1,6 +1,6 @@
 {
   "name": "@safetry/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A TypeScript library for safe error handling with Result types",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

@@ -1,4 +1,4 @@
-# safetry
+# @safetry/core
 
 A TypeScript library for safe error handling using Result types, inspired by functional programming.
 
@@ -13,7 +13,7 @@ A TypeScript library for safe error handling using Result types, inspired by fun
 ## 📦 Installation
 
 ```bash
-npm install safetry
+npm install @safetry/core
 ```
 
 ## 🔧 Basic Usage
@@ -23,7 +23,7 @@ npm install safetry
 Converts operations that can fail into a `Result` type:
 
 ```typescript
-import { safetry } from 'safetry';
+import { safetry } from '@safetry/core';
 
 // Synchronous operation
 const result = await safetry(() => {
@@ -48,7 +48,7 @@ const asyncResult = await safetry(async () => {
 #### `fallback` - Default Values
 
 ```typescript
-import { safetry, fallback } from 'safetry';
+import { safetry, fallback } from '@safetry/core';
 
 const result = await safetry(() => riskyOperation());
 
@@ -65,7 +65,7 @@ const valueWithError = fallback(result, (error) => {
 #### `mapValue` - Value Transformation
 
 ```typescript
-import { safetry, mapValue } from 'safetry';
+import { safetry, mapValue } from '@safetry/core';
 
 const result = await safetry(() => getUserId());
 const upperCased = mapValue(result, id => id.toUpperCase());
@@ -74,7 +74,7 @@ const upperCased = mapValue(result, id => id.toUpperCase());
 #### `tapError` - Error Logging
 
 ```typescript
-import { safetry, tapError } from 'safetry';
+import { safetry, tapError } from '@safetry/core';
 
 const result = await safetry(() => dangerousOperation());
 const logged = tapError(result, (error) => {
@@ -86,7 +86,7 @@ const logged = tapError(result, (error) => {
 #### `unwrap` - Extract Value or Throw Exception
 
 ```typescript
-import { safetry, unwrap } from 'safetry';
+import { safetry, unwrap } from '@safetry/core';
 
 const result = await safetry(() => operation());
 
@@ -101,7 +101,7 @@ try {
 ## 🔗 Operation Chaining
 
 ```typescript
-import { safetry, mapValue, tapError, fallback } from 'safetry';
+import { safetry, mapValue, tapError, fallback } from '@safetry/core';
 
 const processUser = async (userId: string) => {
   const result = await safetry(() => fetchUser(userId));
@@ -126,7 +126,7 @@ const processUserTraditional = async (userId: string) => {
 ### `fallbackAsync`
 
 ```typescript
-import { safetry, fallbackAsync } from 'safetry';
+import { safetry, fallbackAsync } from '@safetry/core';
 
 const result = safetry(async () => {
   const response = await fetch('/api/data');
@@ -149,7 +149,7 @@ const dataSync = await fallbackAsync(result, 'default data');
 ### Error Transformation
 
 ```typescript
-import { safetry } from 'safetry';
+import { safetry } from '@safetry/core';
 
 const result = await safetry(
   () => riskyOperation(),
@@ -167,7 +167,7 @@ const result = await safetry(
 ### Stack Trace Capture
 
 ```typescript
-import { safetry } from 'safetry';
+import { safetry } from '@safetry/core';
 
 const result = await safetry(
   () => operation(),
@@ -180,7 +180,7 @@ const result = await safetry(
 ### API with Error Handling
 
 ```typescript
-import { safetry, mapValue, tapError, fallback } from 'safetry';
+import { safetry, mapValue, tapError, fallback } from '@safetry/core';
 
 class UserService {
   async getUser(id: string) {
@@ -225,7 +225,7 @@ class UserService {
 ### Form Validation
 
 ```typescript
-import { safetry, mapValue, fallback } from 'safetry';
+import { safetry, mapValue, fallback } from '@safetry/core';
 
 interface FormData {
   email: string;
